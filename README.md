@@ -46,10 +46,10 @@ npm start
 
 ### 📌 Funcionalidades a fazer
 
-- [] Criar Edição e Exclusão dos Lançamentos
-- [] Criar fluxo de andamento do caminhão (Status de "Aguardando Entrada", "Carregando" e "Concluído")
-- [] Níveis de acesso para visualização de menus
-- [] Ajustar para quando o token vencer ele gerar um novo
+- [ ] Criar Edição e Exclusão dos Lançamentos
+- [ ] Criar fluxo de andamento do caminhão (Status de "Aguardando Entrada", "Carregando" e "Concluído")
+- [ ] Níveis de acesso para visualização de menus
+- [ ] Ajustar para quando o token vencer ele gerar um novo
 
 ### ⌨️ Tecnologias e Ferramentas
 
