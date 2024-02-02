@@ -1,0 +1,81 @@
+<po-page-default [p-title]="tituloPagina" [p-actions]="acoes">
+  <po-container>
+    <form [formGroup]="formMotorista">
+      <div class="po-row">
+        <po-input
+          class="po-lg-4"
+          formControlName="nome"
+          p-label="Nome Completo"
+          p-required="true"
+          [p-minlength]="3"
+          [p-maxlength]="255"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+
+        <po-input
+          class="po-lg-4"
+          formControlName="cpf"
+          p-label="CPF"
+          p-mask="999.999.999-99"
+          p-mask-format-model="true"
+          p-required="true"
+          [p-minlength]="14"
+          [p-maxlength]="14"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+
+        <po-input
+          class="po-lg-4"
+          formControlName="contato"
+          p-label="Contato (WhatsApp)"
+          p-icon="po-icon po-icon-social-whatsapp"
+          p-mask="(99) 99999-9999"
+          p-mask-format-model="true"
+          p-required="true"
+          [p-minlength]="14"
+          [p-maxlength]="15"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input
+          class="po-lg-4"
+          formControlName="empresa"
+          p-label="Empresa"
+          p-required="true"
+          [p-minlength]="3"
+          [p-maxlength]="255"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+
+        <po-select
+          class="po-lg-4"
+          p-label="Filial"
+          formControlName="idFilial"
+          [p-options]="filiaisOptions"
+          p-placeholder="Selecione..."
+          p-required="true"
+          [p-disabled]="isDisabledBool"
+        >
+        </po-select>
+
+        <po-switch
+          *ngIf="idMotorista !== null"
+          class="po-lg-4"
+          formControlName="status"
+          p-label="Status"
+          p-label-off="Inativo"
+          p-label-on="Ativo"
+          p-required="true"
+          [p-disabled]="isDisabledBool"
+        >
+        </po-switch>
+      </div>
+    </form>
+  </po-container>
+</po-page-default>

@@ -1,0 +1,30 @@
+<po-page-default p-title="Motoristas" [p-actions]="acoesFiltro">
+  <po-table
+    #table
+    [p-actions]="acoesTabela"
+    p-actions-right="true"
+    [p-columns]="colunas"
+    [p-height]="350"
+    [p-hide-table-search]="false"
+    [p-infinite-scroll]="true"
+    [p-infinite-scroll-distance]="80"
+    [p-items]="listaMotoristas"
+    p-sort="true"
+    p-striped="true"
+  >
+  </po-table>
+
+  <po-modal
+    #modalInativarMotorista
+    p-click-out="true"
+    p-size="sm"
+    p-title="Inativar"
+    [p-hide-close]="true"
+    [p-primary-action]="confirmar"
+    [p-secondary-action]="cancelar"
+  >
+    <p>
+      Deseja inativar o motorista <strong>{{ nomeMotorista }}</strong> ?
+    </p></po-modal
+  >
+</po-page-default>

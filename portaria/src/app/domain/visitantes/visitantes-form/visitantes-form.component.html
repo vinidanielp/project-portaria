@@ -1,0 +1,132 @@
+<po-page-default [p-title]="tituloPagina" [p-actions]="acoes">
+  <po-container>
+    <form [formGroup]="formVisitante">
+      <div class="po-row">
+        <po-input
+          class="po-lg-4"
+          formControlName="nome"
+          p-label="Nome Completo"
+          [p-minlength]="4"
+          [p-maxlength]="255"
+          p-error-pattern="Inválido"
+          p-required
+          p-placeholder="Informe um nome"
+          [p-disabled]="isDisabledString"
+        ></po-input>
+
+        <po-input
+          class="po-lg-4"
+          formControlName="cpf"
+          p-label="CPF"
+          p-mask="999.999.999-99"
+          p-mask-format-model="true"
+          [p-minlength]="14"
+          [p-maxlength]="14"
+          p-required
+          p-placeholder="000.000.000-00"
+          [p-disabled]="isDisabledString"
+        ></po-input>
+
+        <po-input
+          class="po-lg-4"
+          formControlName="contato"
+          p-label="Contato"
+          p-mask="(99) 99999-9999"
+          p-mask-format-model="true"
+          [p-minlength]="15"
+          [p-maxlength]="15"
+          p-icon="po-icon po-icon-social-whatsapp"
+          p-required
+          p-placeholder="(00) 00000-0000"
+          [p-disabled]="isDisabledString"
+        ></po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input
+          class="po-lg-4"
+          formControlName="departamento"
+          p-label="Departamento"
+          [p-minlength]="2"
+          [p-maxlength]="100"
+          p-required
+          p-placeholder="Informe um departamento"
+          [p-disabled]="isDisabledString"
+        ></po-input>
+
+        <po-input
+          class="po-lg-4"
+          formControlName="empresa"
+          p-label="Empresa"
+          [p-minlength]="2"
+          [p-maxlength]="255"
+          p-required
+          p-placeholder="Informe o nome da empresa"
+          [p-disabled]="isDisabledString"
+        ></po-input>
+
+        <po-select
+          class="po-lg-4"
+          p-label="Filial"
+          formControlName="idFilial"
+          [p-options]="filiaisOptions"
+          p-placeholder="Selecione..."
+          p-required="true"
+          [p-disabled]="isDisabledBool"
+        >
+        </po-select>
+      </div>
+
+      <div class="po-row">
+        <po-input
+          class="po-lg-1"
+          formControlName="horaVisita"
+          p-label="Hora"
+          p-mask="99:99"
+          p-mask-format-model="true"
+          p-pattern="[0-2][0-9]:[0-5][0-9]"
+          p-error-pattern="Inválido"
+          p-required
+          p-placeholder="08:00"
+          [p-disabled]="isDisabledString"
+        ></po-input>
+
+        <po-datepicker
+          class="po-lg-3"
+          formControlName="dataVisita"
+          p-label="Data Visita"
+          [p-min-date]="dataAtual"
+          p-required
+          p-placeholder="30/12/2023"
+          [p-disabled]="isDisabledString"
+        >
+        </po-datepicker>
+
+        <po-switch
+          *ngIf="idVisitante !== null"
+          class="po-lg-4"
+          formControlName="status"
+          p-label="Status"
+          p-label-off="Inativo"
+          p-label-on="Ativo"
+          p-required="true"
+          [p-disabled]="isDisabledBool"
+        >
+        </po-switch>
+      </div>
+
+      <div class="po-row">
+        <po-textarea
+          class="po-lg-12"
+          formControlName="observacao"
+          p-label="Observação"
+          [p-rows]="3"
+          [p-optional]="true"
+          [p-maxlength]="255"
+          p-placeholder="Digite uma observação"
+          [p-disabled]="isDisabledBool"
+        ></po-textarea>
+      </div>
+    </form>
+  </po-container>
+</po-page-default>

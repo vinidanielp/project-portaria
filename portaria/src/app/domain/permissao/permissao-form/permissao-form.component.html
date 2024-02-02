@@ -1,0 +1,20 @@
+<po-page-default [p-title]="tituloPagina" [p-actions]="acoes">
+  <po-container>
+    <form [formGroup]="formPermissao">
+      <div class="po-row">
+        <po-input
+          type="text"
+          class="po-lg-4"
+          formControlName="nome"
+          p-label="Nome"
+          [p-minlength]="1"
+          [p-maxlength]="255"
+          p-error-pattern="Inválido"
+          p-upper-case="true"
+          p-required
+          p-placeholder="Informe um nome"
+        ></po-input>
+      </div>
+    </form>
+  </po-container>
+</po-page-default>

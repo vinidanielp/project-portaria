@@ -1,0 +1,29 @@
+<po-page-default p-title="Perfil" [p-actions]="acoesFiltro">
+  <po-table #table
+    [p-actions]="acoesTabela"
+    [p-columns]="colunas"
+    [p-height]="350"
+    p-hide-table-search="false"
+    p-actions-right="true"
+    [p-infinite-scroll]="true"
+    [p-infinite-scroll-distance]="80"
+    [p-items]="listaPerfis"
+    p-sort="true"
+    p-striped="true"
+  >
+  </po-table>
+
+  <po-modal
+  #modalExcluir
+  p-click-out="true"
+  p-size="sm"
+  p-title="Excluir"
+  [p-hide-close]="true"
+  [p-primary-action]="confirmar"
+  [p-secondary-action]="cancelar"
+  >
+    <p>
+      Deseja excluir o perfil: <strong>{{ nomePerfil }} ?</strong>
+    </p>
+  </po-modal>
+</po-page-default>

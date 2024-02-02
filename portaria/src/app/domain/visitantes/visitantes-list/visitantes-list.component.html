@@ -1,0 +1,31 @@
+<po-page-default p-title="Visitantes" [p-actions]="acoesFiltro">
+  <po-table
+    #table
+    [p-actions]="acoesTabela"
+    p-actions-right="true"
+    [p-columns]="colunas"
+    [p-height]="350"
+    p-hide-table-search="false"
+    [p-infinite-scroll]="true"
+    [p-filtered-columns]="colunasPesquisa"
+    [p-infinite-scroll-distance]="80"
+    [p-items]="listaVisitantes"
+    p-sort="true"
+    p-striped="true"
+  >
+  </po-table>
+
+  <po-modal
+    #modalExcluir
+    p-click-out="true"
+    p-size="sm"
+    p-title="Excluir"
+    [p-hide-close]="true"
+    [p-primary-action]="confirmar"
+    [p-secondary-action]="cancelar"
+  >
+    <p>
+      Deseja excluir a visita de <strong>{{ nomeVisitante }} ?</strong>
+    </p>
+  </po-modal>
+</po-page-default>

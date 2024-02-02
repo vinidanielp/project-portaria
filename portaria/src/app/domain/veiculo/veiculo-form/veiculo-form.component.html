@@ -1,0 +1,94 @@
+<po-page-default [p-title]="tituloPagina" [p-actions]="acoes">
+  <po-container>
+    <form [formGroup]="formVeiculo">
+      <div class="po-row">
+        <po-combo
+          class="po-lg-4"
+          p-label="Motorista"
+          formControlName="idMotorista"
+          [p-options]="motoristasOptions"
+          p-placeholder="Selecione..."
+          [p-disabled]="isDisabledBool"
+          [p-filter-mode]="filterMode"
+        >
+        </po-combo>
+        <po-input
+          class="po-md-4"
+          formControlName="proprietario"
+          p-label="Propietário"
+          p-required
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+        <po-select
+          class="po-lg-4"
+          p-label="Filial"
+          formControlName="idFilial"
+          [p-options]="filiaisOptions"
+          p-placeholder="Selecione..."
+          p-required="true"
+          [p-disabled]="isDisabledBool"
+        >
+        </po-select>
+      </div>
+
+      <div class="po-row">
+        <po-input
+          class="po-md-4"
+          formControlName="chassis"
+          p-label="Chassis"
+          p-required
+          [p-minlength]="17"
+          [p-maxlength]="17"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+        <po-input
+          class="po-md-4"
+          formControlName="marca"
+          p-label="Marca"
+          p-required
+          [p-minlength]="3"
+          [p-maxlength]="30"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+        <po-input
+          class="po-md-4"
+          formControlName="modelo"
+          p-label="Modelo"
+          p-required
+          [p-minlength]="3"
+          [p-maxlength]="30"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+      </div>
+      <div class="po-row">
+        <po-input
+          class="po-md-4"
+          formControlName="placa"
+          p-label="Placa"
+          p-required
+          p-upper-case="true"
+          [p-minlength]="7"
+          [p-maxlength]="7"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+
+        <po-switch
+          *ngIf="idVeiculo !== null"
+          class="po-lg-4"
+          formControlName="status"
+          p-label="Status"
+          p-label-off="Inativo"
+          p-label-on="Ativo"
+          p-required="true"
+          [p-disabled]="isDisabledBool"
+        >
+        </po-switch>
+      </div>
+    </form>
+  </po-container>
+</po-page-default>

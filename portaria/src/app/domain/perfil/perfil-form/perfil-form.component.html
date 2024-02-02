@@ -1,0 +1,28 @@
+<po-page-default [p-title]="tituloPagina" [p-actions]="acoes">
+  <po-container>
+    <form [formGroup]="formPerfil">
+      <div class="po-row">
+        <po-input
+          class="po-lg-4"
+          formControlName="nome"
+          p-label="Nome"
+          [p-minlength]="1"
+          [p-maxlength]="255"
+          p-error-pattern="Inválido"
+          p-required
+          p-placeholder="Informe um nome"
+        ></po-input>
+
+        <po-multiselect
+          class="po-lg-4"
+          formControlName="permissoes"
+          [p-required]="true"
+          p-error-pattern="Selecione uma opção"
+          p-label="Permissões"
+          [p-options]="permissoesOptions"
+          [p-hide-search]="true"
+        >
+        </po-multiselect>
+      </div>
+    </form>
+  </po-container>

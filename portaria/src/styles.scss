@@ -1,0 +1,121 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --menu-size: 256px;
+  --menu-width: 256px;
+  --color-toolbar-background-color-toolbar: #f6f6f6;
+  --color-page-background-color-page: #f6f6f6;
+  --color-wrapper-menu-panel-color-background: #f6f6f6;
+
+  --color-action-default: #000000;
+  // --color-action-hover: var(--color-brand-01-dark);
+  // --color-action-pressed: var(--color-brand-01-darker);
+  // --color-action-disabled: var(--color-neutral-light-30);
+  --color-action-focus: transparent;
+
+  --color-stepper-circle-default: #0d758c;
+  --color-stepper-circle-active: #0a5b6e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  background: #f6f6f6;
+}
+
+.po-input:disabled,
+.po-select:disabled,
+.po-textarea:disabled {
+  --background-disabled: #f6f6f6;
+}
+
+input.po-input,
+input.po-input,
+po-datepicker,
+po-input,
+po-lookup,
+po-number,
+po-textarea,
+po-select,
+po-search,
+po-combo {
+  --background-hover: #f4f4f4;
+  --color-hover: #000000;
+}
+
+.po-menu,
+.po-menu-item {
+  --color: #0c9abe;
+  --background-color: #222222;
+  --border-color: #222222;
+  border-top: 1px solid rgba(74, 92, 96, 0.45);
+}
+
+.po-menu-mobile {
+  color: #000000;
+}
+
+.po-menu-item {
+  --color-actived: #0c9abe;
+  --color-hover: #0c9abe;
+  --background-color-hover: #333;
+  --background-color-actived: #222222;
+  --background-color-pressed: #222222;
+}
+
+.po-button[p-kind="primary"] {
+  --color: #0d758c;
+  --color-hover: #0b667a;
+  --color-pressed: #0b667a;
+  --text-color: #f2f2f2;
+}
+
+.po-button[p-kind="secondary"] {
+  --color: #9b2d27;
+  --border-color: #9b2d27;
+  --color-hover: #72211d;
+  --background-hover: rgba(255, 0, 0, 0.05);
+  --border-color-hover: #9b2d27;
+  --color-pressed: #9b2d27;
+  --background-pressed: #ffe6e6;
+}
+
+.po-button[p-kind="tertiary"] {
+  --background-hover: rgba(107, 176, 191, 0.37);
+  --color-hover: #000000;
+}
+
+.po-switch [aria-checked="false"] {
+  --track-unchecked: #d9adad;
+  --color-unchecked: #bf0a0a;
+  --border-color: #bf0a0a;
+  --color-unchecked-hover: #ad0909;
+}
+
+.po-switch [aria-checked="true"] {
+  --track-checked: rgba(107, 176, 191, 0.37);
+  --color-checked: #0d758c;
+  --border-color: #0d758c;
+  --color-checked-hover: #0b6478;
+}
+
+.po-table {
+  --background-striped-color: var(--color-neutral-light-10);
+}
+
+.po-widget .po-widget-md [id^="primaryAct"] {
+  --color-widget-color-action-active: #72211d;
+  --color-widget-color-action-hover: #72211d;
+  --color-widget-color-action: #9b2d27;
+}
+
+.po-widget .po-widget-xl [id^="primaryAct"],
+.po-widget [id^="secondaryAct"] {
+  --color-widget-color-action-active: #0b667a;
+  --color-widget-color-action-hover: #0b667a;
+  --color-widget-color-action: #1093b0;
+}

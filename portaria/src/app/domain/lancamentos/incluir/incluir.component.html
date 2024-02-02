@@ -1,0 +1,229 @@
+<po-page-default p-title="Lançamento">
+  <div style="position: relative">
+    <po-loading-overlay *ngIf="isLoading" p-text="Loading">
+    </po-loading-overlay>
+
+    <po-stepper
+      #stepper
+      [p-step-icons]="true"
+      [p-step-size]="1"
+      [p-orientation]="orientacao"
+    >
+      <po-step
+        p-label="Tipo"
+        [p-can-active-next-step]="
+          ativaProximoStepForm.bind(this, formTipoLancamento)
+        "
+      >
+        <po-widget
+          class="po-md-12"
+          [p-primary-label]="labelProximoWidget"
+          p-title="Lançamento"
+          (p-primary-action)="stepper.next()"
+        >
+          <form [formGroup]="formTipoLancamento">
+            <div class="po-row">
+              <po-radio-group
+                class="po-lg-5"
+                formControlName="tipoLancamento"
+                p-label="Tipo de lançamento"
+                [p-required]="true"
+                [p-options]="tipoLancamentoOpcao"
+              >
+              </po-radio-group>
+            </div>
+          </form>
+        </po-widget>
+      </po-step>
+
+      <po-step
+        p-label="Lançamento"
+        [p-can-active-next-step]="
+          ativaProximoStepForm.bind(this, formLancamento)
+        "
+      >
+        <po-widget
+          class="po-md-12"
+          p-title="Lançamento"
+          [p-primary-label]="labelVoltarWidget"
+          [p-secondary-label]="labelProximoWidget"
+          (p-primary-action)="stepper.previous()"
+          (p-secondary-action)="stepper.next()"
+        >
+          <form [formGroup]="formLancamento">
+            <div class="po-row">
+              <po-combo
+                class="po-lg-6"
+                p-label="Motorista"
+                formControlName="idMotorista"
+                [p-options]="motoristasOptions"
+                p-placeholder="Selecione..."
+                [p-required]="true"
+                (p-change)="onChangeMotorista($event)"
+                p-emit-object-value="true"
+                [p-change-on-enter]="true"
+              ></po-combo>
+
+              <po-combo
+                class="po-lg-6"
+                p-label="Veículo"
+                formControlName="idVeiculo"
+                [p-options]="veiculosOptions"
+                p-placeholder="Selecione..."
+                (p-change)="onChangeVeiculo($event)"
+                p-emit-object-value="true"
+                [p-required]="true"
+              ></po-combo>
+            </div>
+            <div class="row">
+              <po-select
+                class="po-lg-6"
+                p-label="Filial"
+                formControlName="idFilial"
+                [p-options]="filiaisOptions"
+                [p-required]="true"
+                p-placeholder="Selecione..."
+              >
+              </po-select>
+
+              <po-input
+                class="po-lg-6"
+                formControlName="numeroPedido"
+                p-label="Nº do Pedido"
+                p-pattern="^MF[0-9]{6}$"
+                p-error-pattern="Modelo MF000000"
+                [p-minlength]="8"
+                [p-maxlength]="8"
+                p-upper-case="true"
+                p-required
+              >
+              </po-input>
+            </div>
+
+            <div class="po-row">
+              <po-input
+                class="po-lg-6"
+                formControlName="notaFiscal"
+                p-label="NF"
+                p-pattern="^[0-9]*$"
+                p-error-pattern="Campo numérico"
+                [p-minlength]="1"
+                [p-maxlength]="7"
+                p-required
+              >
+              </po-input>
+            </div>
+          </form>
+        </po-widget>
+
+        <!-- <po-widget
+          class="po-md-12"
+          [p-height]="250"
+          p-title="Lançamento de Entrada"
+          [p-primary-label]="labelVoltarWidget"
+          [p-secondary-label]="labelProximoWidget"
+          (p-primary-action)="stepper.previous()"
+          (p-secondary-action)="stepper.next()"
+
+        >
+          <form #addressForm="">
+            <div class="po-row">
+              <po-input
+                class="po-md-6"
+                name="address.street"
+                p-label="Street/House"
+                p-required
+              >
+              </po-input>
+              <po-input class="po-md-3" name="number" p-label="Number" p-required>
+              </po-input>
+              <po-input class="po-md-3" name="city" p-label="City" p-required> </po-input>
+            </div>
+            <div class="po-row">
+              <po-input class="po-md-3" name="code"  p-label="Postal Code" p-required>
+              </po-input>
+              <po-input class="po-md-3" name="country"  p-label="Country" p-required>
+              </po-input>
+              <po-input class="po-md-6" name="reference"  p-label="Reference" [p-optional]="true">
+              </po-input>
+            </div>
+          </form>
+        </po-widget> -->
+      </po-step>
+
+      <po-step p-label="Confirmar">
+        <po-widget
+          class="po-md-12"
+          [p-primary-label]="labelVoltarWidget"
+          [p-secondary-label]="labelSalvarWidget"
+          p-title="Revisar lançamento"
+          (p-primary-action)="stepper.previous()"
+          (p-secondary-action)="salvar()"
+        >
+          <div class="po-row po-mb-2">
+            <po-info
+              class="po-md-4"
+              p-label="Tipo de Entrada"
+              [p-value]="
+                this.tipoLancamento.value === 'C' ? 'Carregamento' : 'Descarga'
+              "
+            >
+            </po-info>
+            <po-info
+              class="po-md-4"
+              p-label="Motorista"
+              [p-value]="this.motoristaSelecionado"
+            >
+            </po-info>
+            <po-info
+              class="po-md-4"
+              p-label="Veículo"
+              [p-value]="this.veiculoSelecionado"
+            >
+            </po-info>
+          </div>
+
+          <div class="po-row">
+            <po-info
+              class="po-md-4"
+              p-label="Nº do Pedido"
+              [p-value]="this.numeroPedido.value"
+            >
+            </po-info>
+            <po-info
+              class="po-md-4"
+              p-label="NF"
+              [p-value]="this.notaFiscal.value"
+            >
+            </po-info>
+            <po-info
+            class="po-md-4"
+            p-label="Situação"
+            p-value="Entrada"
+          >
+          </po-info>
+          </div>
+        </po-widget>
+      </po-step>
+    </po-stepper>
+  </div>
+
+  <po-modal #lancamentoConfirmado
+    p-title="Informações"
+    [p-primary-action]="fecharModal"
+  >
+    <div class="po-row">
+      <img
+        class="po-md-12 po-mb-4 display-center"
+        src="../../../../assets/images/confirmar.svg"
+        width="150"
+        height="150"
+      />
+    </div>
+    <div class="po-row">
+      <p class="po-md-12 po-font-subtitle display-center">
+        Lançamento {{ idLancamento }} efetuado com sucesso!
+      </p>
+    </div>
+  </po-modal>
+</po-page-default>

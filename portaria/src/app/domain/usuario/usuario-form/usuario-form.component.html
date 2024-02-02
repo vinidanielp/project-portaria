@@ -1,0 +1,78 @@
+<po-page-default [p-title]="tituloPagina" [p-actions]="acoes">
+  <po-container>
+    <form [formGroup]="formUsuario">
+      <div class="po-row">
+        <po-input
+          class="po-lg-4"
+          formControlName="nome"
+          p-label="Nome Completo"
+          p-required="true"
+          [p-minlength]="3"
+          [p-maxlength]="150"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+
+        <po-input
+          class="po-lg-4"
+          formControlName="login"
+          p-label="Login"
+          p-required="true"
+          [p-minlength]="3"
+          [p-maxlength]="50"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+
+        <po-input
+          class="po-lg-4"
+          formControlName="email"
+          p-label="E-mail"
+          p-required="true"
+          [p-minlength]="3"
+          [p-maxlength]="50"
+          [p-disabled]="isDisabledString"
+        >
+        </po-input>
+      </div>
+      <div class="po-row">
+        <po-select
+        class="po-lg-4"
+        p-label="Perfil"
+        formControlName="idPerfil"
+        [p-options]="perfisOptions"
+        p-placeholder="Selecione..."
+        p-required="true"
+        [p-disabled]="isDisabledBool"
+        >
+        </po-select>
+
+        <po-multiselect
+          class="po-lg-4"
+          p-label="Filial"
+          formControlName="filiais"
+          [p-options]="filiaisOptions"
+          p-placeholder="Selecione..."
+          [p-required]="true"
+          [p-disabled]="isDisabledBool"
+          [p-hide-search]="true"
+        >
+        </po-multiselect>
+
+
+
+        <po-switch
+          *ngIf="idUsuario !== null"
+          class="po-lg-4"
+          formControlName="status"
+          p-label="Status"
+          p-label-off="Inativo"
+          p-label-on="Ativo"
+          p-required="true"
+          [p-disabled]="isDisabledBool"
+        >
+        </po-switch>
+      </div>
+    </form>
+  </po-container>
+</po-page-default>
