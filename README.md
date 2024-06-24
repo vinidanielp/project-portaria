@@ -43,19 +43,19 @@ npm start
 - [x] Cadastro e Listagem de Lançamentos 
 - [x] Listagem de Visitas no dia atual e nos próximos 5 dias 
 - [x] Validação dos campos dos formulários
+- [x] Ajustar para quando o token vencer ele gerar um novo
 
 ### 📌 Funcionalidades a fazer
 
 - [ ] Criar Edição e Exclusão dos Lançamentos
 - [ ] Criar fluxo de andamento do caminhão (Status de "Aguardando Entrada", "Carregando" e "Concluído")
 - [ ] Níveis de acesso para visualização de menus
-- [ ] Ajustar para quando o token vencer ele gerar um novo
 
 ### ⌨️ Tecnologias e Ferramentas
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- Front-end
+*Front-end*
 * Angular 16
 * Biblioteca Po-Ui
 * Autenticação Jwt
@@ -63,7 +63,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 * Interceptors
 * Responsividade
 
-- Back-end
+*Back-end*
 * Java 17 (Spring boot)
 * Maven
 * Hibernate e JPA
