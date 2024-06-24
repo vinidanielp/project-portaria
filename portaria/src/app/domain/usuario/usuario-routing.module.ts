@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsuarioListComponent } from './usuario-list/usuario-list.component';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
-import { FilialResolve } from 'src/app/core/resolvers/filial-resolve.guard';
-import { PerfilResolve } from 'src/app/core/resolvers/perfil-resolve.guard';
+import { FilialGuard } from 'src/app/core/guards/filial.guard';
+import { PerfilGuard } from 'src/app/core/guards/perfil.guard';
 
 const routes: Routes = [
   {
@@ -14,24 +14,24 @@ const routes: Routes = [
     path: 'configuracoes/usuario/novo',
     component: UsuarioFormComponent,
     resolve: {
-      filialData: FilialResolve,
-      perfilData: PerfilResolve
+      filialData: FilialGuard,
+      perfilData: PerfilGuard
     },
   },
   {
     path: 'configuracoes/usuario/editar/:id',
     component: UsuarioFormComponent,
     resolve: {
-      filialData: FilialResolve,
-      perfilData: PerfilResolve
+      filialData: FilialGuard,
+      perfilData: PerfilGuard
     },
   },
   {
     path: 'configuracoes/usuario/visualizar/:id',
     component: UsuarioFormComponent,
     resolve: {
-      filialData: FilialResolve,
-      perfilData: PerfilResolve
+      filialData: FilialGuard,
+      perfilData: PerfilGuard
     },
   },
 ];

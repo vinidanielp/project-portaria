@@ -1,5 +1,5 @@
+import { AutenticacaoService } from './services/autenticacao.service';
 import {
-  Validators,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { PoLanguage } from '@po-ui/ng-components';
 import { PoPageLoginLiterals } from '@po-ui/ng-templates';
 import { Login } from 'src/app/core/models/login';
-import { AutenticacaoService } from './services/autenticacao.service';
 
 @Component({
   selector: 'app-login',
@@ -56,9 +55,9 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     if(formData.login !== null && formData.password !== null) {
-      let login: Login = {login: formData.login, senha: formData.password}
+      const login: Login = {login: formData.login, senha: formData.password}
 
-      this.autenticacaoService.postLogin(login).subscribe({
+      this.autenticacaoService.autenticar(login).subscribe({
         next: () => {
           setTimeout(() => {
             this.loading = false;

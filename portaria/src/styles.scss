@@ -2,9 +2,11 @@
 :root {
   --menu-size: 256px;
   --menu-width: 256px;
+
   --color-toolbar-background-color-toolbar: #f6f6f6;
+  --color-wrapper-menu-panel-color-background: #000000;
+
   --color-page-background-color-page: #f6f6f6;
-  --color-wrapper-menu-panel-color-background: #f6f6f6;
 
   --color-action-default: #000000;
   // --color-action-hover: var(--color-brand-01-dark);
@@ -14,7 +16,10 @@
 
   --color-stepper-circle-default: #0d758c;
   --color-stepper-circle-active: #0a5b6e;
+
+
 }
+
 
 * {
   margin: 0;
@@ -53,10 +58,6 @@ po-combo {
   --background-color: #222222;
   --border-color: #222222;
   border-top: 1px solid rgba(74, 92, 96, 0.45);
-}
-
-.po-menu-mobile {
-  color: #000000;
 }
 
 .po-menu-item {
@@ -118,4 +119,15 @@ po-combo {
   --color-widget-color-action-active: #0b667a;
   --color-widget-color-action-hover: #0b667a;
   --color-widget-color-action: #1093b0;
+}
+
+.po-toolbar-profile-item-header-subtitle,
+.po-toolbar-profile-item-header-title {
+  --color-toolbar-color-default: #000000;
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --color-wrapper-menu-panel-color-background: none;
+  }
 }

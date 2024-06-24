@@ -1,3 +1,6 @@
+import { Permissao } from "../models/permissao";
+import { LocalStorageService } from "../services/local-storage.service";
+
 export class Util {
   /**
    * @param value
@@ -37,5 +40,26 @@ export class Util {
     );
 
     return telefoneSemMascara;
+  }
+
+  /**
+   * Checa se o usuario tem permissão
+   *
+   * @param permissao
+   */
+  static isPermissao(permissao: string): boolean {
+    let isAllowed = false;
+
+    const localStorageService = new LocalStorageService();
+    const permissoes: Permissao[] = localStorageService.getObject('userAuth').permissoes;
+
+    for(let i = 0; i < permissoes.length && !isAllowed ; i++){
+      if(permissoes[i].toString() === permissao){
+        isAllowed = true;
+        break;
+      }
+    }
+
+    return isAllowed;
   }
 }

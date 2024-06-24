@@ -9,7 +9,7 @@ import { PoTemplatesModule } from '@po-ui/ng-templates';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout/admin-layout.component';
-import { HttpsRequestInterceptor } from './app.interceptor';
+import { HttpsRequestInterceptor } from './core/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent, AdminLayoutComponent],

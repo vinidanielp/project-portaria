@@ -2,15 +2,16 @@
   <po-menu [p-menus]="menus">
     <div *p-menu-header-template class="user">
       <div class="user-info">
-        <img class="photo" src="https://picsum.photos/200">
-        <span>Olá, Vinicius Daniel</span>
+        <img class="photo" [src]="src">
+        <span>{{ nomeUsuario }}</span>
       </div>
     </div>
   </po-menu>
 
-  <po-toolbar [p-profile]="profile" [p-profile-actions]="profileActions">
+  <po-toolbar
+    [p-profile]="profile"
+    [p-profile-actions]="profileActions">
   </po-toolbar>
 
   <router-outlet></router-outlet>
-
 </div>

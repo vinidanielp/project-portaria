@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VisitantesFormComponent } from './visitantes-form/visitantes-form.component';
 import { VisitantesListComponent } from './visitantes-list/visitantes-list.component';
-import { FilialResolve } from 'src/app/core/resolvers/filial-resolve.guard';
+import { FilialGuard } from 'src/app/core/guards/filial.guard';
 
 const routes: Routes = [
   {
@@ -13,21 +13,21 @@ const routes: Routes = [
     path: 'visitantes/novo',
     component: VisitantesFormComponent,
     resolve: {
-      filialData: FilialResolve,
+      filialData: FilialGuard,
     },
   },
   {
     path: 'visitantes/editar/:id',
     component: VisitantesFormComponent,
     resolve: {
-      filialData: FilialResolve,
+      filialData: FilialGuard,
     },
   },
   {
     path: 'visitantes/visualizar/:id',
     component: VisitantesFormComponent,
     resolve: {
-      filialData: FilialResolve,
+      filialData: FilialGuard,
     },
   },
 ];
